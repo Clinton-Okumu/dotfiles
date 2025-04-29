@@ -125,3 +125,6 @@ if [ -f '/home/clint_okumu/google-cloud-sdk/completion.zsh.inc' ]; then . '/home
 
 #set vertical bar line cursor
 echo -ne "\e[6 q"
+
+#elias of listing files
+alias ls="eza -l --icons --group-directories-first"
