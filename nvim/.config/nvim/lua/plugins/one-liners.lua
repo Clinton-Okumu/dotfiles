@@ -24,4 +24,10 @@ return {
     { -- auto clear
         'romainl/vim-cool'
     },
+     { -- yazi config
+    "mikavilpas/yazi.nvim",
+    keys = {
+      { "<leader>y", function() require("yazi").yazi() end, desc = "Open Yazi file manager" },
+    },
+  },
 }
