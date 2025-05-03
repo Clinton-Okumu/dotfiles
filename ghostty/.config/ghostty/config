@@ -1,10 +1,8 @@
 theme = catppuccin-mocha
-# theme = GruvboxDark
-# font-family = Meslo LGS Nerd Font Mono
-# font-family = CaskaydiaMono Nerd Font
 font-family = JetBrainsMonoNerdFontMono
 font-size = 15
 background-opacity = 0.95
-gtk-titlebar = false
-custom-shader = /home/chris/bloom.glsl
-custom-shader = /home/chris/crt.glsl
+#gtk-titlebar = false
+mouse-hide-while-typing = true
+window-decoration = false
+background-blur-radius = 20
