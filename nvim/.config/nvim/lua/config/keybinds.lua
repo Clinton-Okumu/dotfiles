@@ -53,3 +53,10 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+
+-- Map Ctrl+S in normal mode to save and quit
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = "Save and quit" })
+
+-- Map Ctrl+S in insert mode to save and quit (exits insert mode first)
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>', { desc = "Save and quit" })
