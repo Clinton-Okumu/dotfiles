@@ -27,7 +27,7 @@ set.cursorline = true
 set.colorcolumn = "80"
 
 -- clipboard
-set.clipboard:append("unnamedplus")
+set.clipboard = "unnamedplus"
 
 -- backspace
 set.backspace = "indent,eol,start"
