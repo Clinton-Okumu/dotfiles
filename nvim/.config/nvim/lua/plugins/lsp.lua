@@ -17,6 +17,9 @@ return {
     config = function()
         local autoformat_filetypes = {
             "lua",
+            "go",
+            "javascript",
+            "typescript"
         }
         -- Create a keymap for vim.lsp.buf.implementation
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -28,7 +31,8 @@ return {
                         buffer = args.buf,
                         callback = function()
                             vim.lsp.buf.format({
-                                formatting_options = { tabSize = 4, insertSpaces = true },
+                                -- formatting_options = { tabSize = 4, insertSpaces = true },
+                                async = true,
                                 bufnr = args.buf,
                                 id = client.id
                             })
@@ -122,10 +126,38 @@ return {
                                     version = 'LuaJIT',
                                 },
                                 diagnostics = {
+                                    enable = true,
                                     globals = { 'vim' },
                                 },
                                 workspace = {
-                                    library = { vim.env.VIMRUNTIME },
+                                    vim.env.VIMRUNTIME,
+                                    vim.fn.stdpath("config"),
+                                },
+
+                                checkThirdParty = false,
+                            },
+                        },
+                    })
+                end,
+                gopls = function()
+                    require('lspconfig').gopls.setup({
+                        settings = {
+                            gopls = {
+                                gofumpt = true,
+                                analyses = {
+                                    unusedparams = true,
+                                },
+                                staticcheck = true,
+                                usePlaceholders = true,
+                                completeUnimported = true,
+                                hints = {
+                                    assignVariableTypes = true,
+                                    compositeLiteralFields = true,
+                                    compositeLiteralTypes = true,
+                                    constantValues = true,
+                                    functionTypeParameters = true,
+                                    parameterNames = true,
+                                    rangeVariableTypes = true,
                                 },
                             },
                         },
